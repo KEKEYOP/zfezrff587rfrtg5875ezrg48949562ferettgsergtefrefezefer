@@ -142,6 +142,9 @@ if (msg.content === prefix + "reset"){
         .setTitle('<a:money:627485438608801792> 𝑭𝑼𝑵 <a:money:627485438608801792>')
         .setColor(color)
         .setDescription(`<a:berk:623098992028286986> Afin de retourner au menu principal, faites ${prefix}help <a:berk:623098992028286986>` + "󠂪")
+        // ADD SUR VERSION POUR LAZULY :
+        .addField("<a:sup1:615239090731876352> __EMBED CUSTOM__ <a:sup2:615238582772170763>", `💬 ${prefix}flip [texte] : **Envoie un embed avec le [texte] donné.** \n` + "󠂪")
+        //////////////////////////////////////
         .addField("<a:sup1:615239090731876352> __COIN FLIP__ <a:sup2:615238582772170763>", `💎 ${prefix}flip : **Actionne un pile ou face.** \n` + "󠂪")
         .addField('<a:sup1:615239090731876352> __SAY__ <a:sup2:615238582772170763>',`📍 ${prefix}say : **Affiche un message prédéfini.** \n` + "󠂪")
         .addField('<a:sup1:615239090731876352> __GOOGLE SEARCH__ <a:sup2:615238582772170763>',`🔎 ${prefix}sgoo [mots clefs] : **Fais une recherche Google des mots clefs** \n` + "󠂪")
@@ -736,6 +739,24 @@ if (cmd === prefix + 'setname'){
             .addField(`Code postal : `, body.zip)
         return msg.channel.send(embed);
     }
+
+    // ADD SUR VERSION POUR LAZULY :
+
+    let args = message.content.trim().split(/ +/g)
+	if (args[0].toLowerCase() === prefix + '*se') {
+		if (message.deletable) message.delete();
+
+		if (message.author.id !== bot.user.id) return;
+
+        if (!args[0]) return message.channel.send("Veuillez me dire ceux que vous voulez écrire comme embed :warning:")
+        let question = args.slice(1).join(" ")
+		const smembed = new Discord.RichEmbed()
+    .setDescription(question)
+.setColor(color)
+message.channel.send(smembed)
+}
+
+//////////////////////////////////////
 
 })
 
