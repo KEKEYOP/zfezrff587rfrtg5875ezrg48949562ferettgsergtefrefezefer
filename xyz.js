@@ -737,4 +737,4 @@ if (cmd === prefix + 'setname'){
 
 })
 
-bot.login("process.env.TOKEN")
+bot.login(process.env.TOKEN)
