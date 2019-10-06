@@ -2,10 +2,7 @@
   "name": "swasbot",
   "version": "1.0.0",
   "main": "swa.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node scar.js"
-  },
+
   "author": "& \" 𝙎𝙘𝙖𝙧𝙞𝙛𝙮.♔",
   "license": "ISC",
   "dependencies": {
