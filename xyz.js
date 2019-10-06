@@ -143,7 +143,7 @@ if (msg.content === prefix + "reset"){
         .setColor(color)
         .setDescription(`<a:berk:623098992028286986> Afin de retourner au menu principal, faites ${prefix}help <a:berk:623098992028286986>` + "󠂪")
         // ADD SUR VERSION POUR LAZULY :
-        .addField("<a:sup1:615239090731876352> __EMBED CUSTOM__ <a:sup2:615238582772170763>", `💬 ${prefix}flip [texte] : **Envoie un embed avec le [texte] donné.** \n` + "󠂪")
+        .addField("<a:sup1:615239090731876352> __EMBED CUSTOM__ <a:sup2:615238582772170763>", `💬 ${prefix}se [texte] : **Envoie un embed avec le [texte] donné.** \n` + "󠂪")
         //////////////////////////////////////
         .addField("<a:sup1:615239090731876352> __COIN FLIP__ <a:sup2:615238582772170763>", `💎 ${prefix}flip : **Actionne un pile ou face.** \n` + "󠂪")
         .addField('<a:sup1:615239090731876352> __SAY__ <a:sup2:615238582772170763>',`📍 ${prefix}say : **Affiche un message prédéfini.** \n` + "󠂪")
