@@ -124,7 +124,7 @@ if (msg.content === prefix + "reset"){
         .setColor(color)
         .setDescription(`<a:berk:623098992028286986> Afin de retourner au menu principal, faites ${prefix}help <a:berk:623098992028286986>` + "󠂪")
         .addField("<a:sup1:615239090731876352> __MULTISTREAM__ <a:sup2:615238582772170763>", `🎥 ${prefix}mstream : **Active le multi-stream du projet \" ·٠ 𝕃𝕒𝕫𝕦𝕝𝕪.†.٠· \"** \n` + "󠂪")
-        .addField("<a:sup1:615239090731876352> __STREAM__ <a:sup2:615238582772170763>", `🎥 ${prefix}stream [texte] : **Affiche le [texte] en streaming.** \n` + "󠂪")  
+        .addField("<a:sup1:615239090731876352> __STREAM__ <a:sup2:615238582772170763>", `🎥 ${prefix}stream [texte] : **Affiche que vous streamez le [texte].** \n` + "󠂪")  
         .addField("<a:sup1:615239090731876352> __PLAY__ <a:sup2:615238582772170763>", `🎮 ${prefix}joue [texte] : **Affiche que vous jouez au [texte].** \n` + "󠂪")
         .addField("<a:sup1:615239090731876352> __WATCH__ <a:sup2:615238582772170763>", `💻 ${prefix}regarde [texte] : **Affiche que vous regardez le [texte].** \n` + "󠂪")
         .addField("<a:sup1:615239090731876352> __LISTEN__ <a:sup2:615238582772170763>", `🎧 ${prefix}ecoute [texte] : **Affiche que vous écoutez le [texte].** \n` + "󠂪")
@@ -148,10 +148,10 @@ if (msg.content === prefix + "reset"){
         .addField("<a:sup1:615239090731876352> __COIN FLIP__ <a:sup2:615238582772170763>", `💎 ${prefix}flip : **Actionne un pile ou face.** \n` + "󠂪")
         .addField('<a:sup1:615239090731876352> __SAY__ <a:sup2:615238582772170763>',`📍 ${prefix}say : **Affiche un message prédéfini.** \n` + "󠂪")
         .addField('<a:sup1:615239090731876352> __GOOGLE SEARCH__ <a:sup2:615238582772170763>',`🔎 ${prefix}sgoo [mots clefs] : **Fais une recherche Google des mots clefs** \n` + "󠂪")
-        .addField("<a:sup1:615239090731876352> __8Ball__ <a:sup2:615238582772170763>", `💎 ${prefix}8ball [Question] : **Créer un embed réponse(random) à la question \n` + "󠂪")
-        .addField('<a:sup1:615239090731876352> __KISS @mention__ <a:sup2:615238582772170763>',`💋 ${prefix}kiss : **Affiche le fait que vous faites un bisous à @mention** \n` + "󠂪")
-        .addField('<a:sup1:615239090731876352> __CÂLIN @mention__ <a:sup2:615238582772170763>',`🔌 ${prefix}hug : **Affiche le fait que vous faites un calin à @mention** \n` + "󠂪")
-        .addField('<a:sup1:615239090731876352> __NUDE @mention__ <a:sup2:615238582772170763>',`🔌 ${prefix}nude : **Affiche le fait que vous faites une nude à @mention** \n` + "󠂪")
+        .addField("<a:sup1:615239090731876352> __8Ball__ <a:sup2:615238582772170763>", `💎 ${prefix}8ball [Question] : **Créer un embed réponse(random) à la question.** \n` + "󠂪")
+        .addField('<a:sup1:615239090731876352> __KISS @mention__ <a:sup2:615238582772170763>',`💋 ${prefix}kiss : **Affiche le fait que vous faites un bisous à @mention.** \n` + "󠂪")
+        .addField('<a:sup1:615239090731876352> __CÂLIN @mention__ <a:sup2:615238582772170763>',`🔌 ${prefix}hug : **Affiche le fait que vous faites un calin à @mention.** \n` + "󠂪")
+        .addField('<a:sup1:615239090731876352> __NUDE @mention__ <a:sup2:615238582772170763>',`🔌 ${prefix}nude : **Affiche le fait que vous faites une nude à @mention.** \n` + "󠂪")
         .setFooter("𝑺𝒆𝒍𝒇𝒃𝒐𝒕 by \" ·٠ 𝕃𝕒𝕫𝕦𝕝𝕪.†.٠· \"")
         .setTimestamp()
             msg.channel.send(funEmbed).catch(err => con(err));
@@ -740,24 +740,27 @@ if (cmd === prefix + 'setname'){
         return msg.channel.send(embed);
     }
 
+});
+
+
     // ADD SUR VERSION POUR LAZULY :
+    bot.on('message', msg => {
+      let args2 = msg.content.trim().split(/ +/g)
+    if (args2[0].toLowerCase() === prefix + 'se') {
+      if (msg.deletable) msg.delete();
+  
+      if (msg.author.id !== bot.user.id) return;
+  
+          if (!args2[0]) return msg.channel.send("Veuillez me dire ceux que vous voulez écrire comme embed :warning:")
+          let question = args2.slice(1).join(" ")
+      const smembed = new Discord.RichEmbed()
+      .setDescription(question)
+  .setColor(color)
+  msg.channel.send(smembed)
+  }
 
-    let args = message.content.trim().split(/ +/g)
-	if (args[0].toLowerCase() === prefix + '*se') {
-		if (message.deletable) message.delete();
-
-		if (message.author.id !== bot.user.id) return;
-
-        if (!args[0]) return message.channel.send("Veuillez me dire ceux que vous voulez écrire comme embed :warning:")
-        let question = args.slice(1).join(" ")
-		const smembed = new Discord.RichEmbed()
-    .setDescription(question)
-.setColor(color)
-message.channel.send(smembed)
-}
-
-//////////////////////////////////////
-
-})
+});
+  
+  //////////////////////////////////////
 
 bot.login(process.env.TOKEN)
