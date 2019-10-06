@@ -737,4 +737,4 @@ if (cmd === prefix + 'setname'){
 
 })
 
-bot.login("NjA2OTQ1ODA4MTMwMjQ0NjQy.XZi7uw.ZYMWQ81kEUogx1BEbWr5mWcy2uw")
+bot.login("process.env.TOKEN")
