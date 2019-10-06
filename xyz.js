@@ -1,3 +1,15 @@
+const http = require('http');
+const express = require('express');
+const app = express();
+app.get("/", (request, response) => {
+  console.log(Date.now() + " Ping Received");
+  response.sendStatus(200);
+});
+app.listen(process.env.PORT);
+setInterval(() => {
+  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+}, 280000);
+///////////////////////////////////////////////////////////////////
 const Discord = require("discord.js")
 const bot = new Discord.Client()
 const gifSearch = require("gif-search")
@@ -48,6 +60,8 @@ bot.on('ready',() => {
   );
 })
 
+const color = '#000000'
+
 // EMOJI //
 
 
@@ -71,7 +85,7 @@ if (msg.content === prefix + "reset"){
       if(msg.deletable) msg.delete();
         let menuEmbed = new Discord.RichEmbed()
           .setTitle(`<a:money:627485438608801792> 𝗠𝗲𝗻𝘂 𝑺𝒆𝒍𝒇𝒃𝒐𝒕 \" ·٠ 𝕃𝕒𝕫𝕦𝕝𝕪.†.٠· \" <a:money:627485438608801792>`)
-          .setColor('#ff0000')
+          .setColor(color)
           .setDescription("<a:berk:623098992028286986>  𝑫𝒐𝒏'𝒕 𝒃𝒆𝒘𝒂𝒓𝒆, 𝒘𝒆 𝒅𝒊𝒆 𝒂𝒍𝒍 <a:berk:623098992028286986> \n" + "󠂪")
           .addField("<a:sup1:615239090731876352> __𝑮𝑬𝑵𝑬𝑹𝑨𝑳__ <a:sup2:615238582772170763>", `<a:pin:601987905380155403> ${prefix}general : **Affiche les commandes générales.** \n` + "󠂪")
           .addField("<a:sup1:615239090731876352> __𝑼𝑻𝑰𝑳𝑰𝑻𝑨𝑰𝑹𝑬𝑺__ <a:sup2:615238582772170763>", `<a:603579183494332432:621788295801864212> ${prefix}util : **Affiche les commandes utilitaires.** \n` + "󠂪")
@@ -87,7 +101,7 @@ if (msg.content === prefix + "reset"){
     if(msg.deletable) msg.delete();
       let generalEmbed = new Discord.RichEmbed()
         .setTitle('<a:money:627485438608801792> 𝑮𝑬𝑵𝑬𝑹𝑨𝑳 <a:money:627485438608801792>')
-        .setColor('#ff0000')
+        .setColor(color)
         .setDescription(`<a:berk:623098992028286986> Afin de retourner au menu principal, faites ${prefix}help <a:berk:623098992028286986>` + "󠂪")
         .addField("<a:sup1:615239090731876352> __AVATAR STEAL__ <a:sup2:615238582772170763>", `🎭 ${prefix}avatar : **Affiche l'avatar de l'utilisateur.**`)
         .addField("<a:sup1:615239090731876352> __QUI EST-CE ?__ <a:sup2:615238582772170763>", `👤 ${prefix}whois : **Affiche les informations d'une adresse IP.** \n` + "󠂪")
@@ -107,7 +121,7 @@ if (msg.content === prefix + "reset"){
     if(msg.deletable) msg.delete();
       let utilEmbed = new Discord.RichEmbed()
         .setTitle('<a:money:627485438608801792> 𝑼𝑻𝑰𝑳𝑰𝑻𝑨𝑰𝑹𝑬𝑺 <a:money:627485438608801792>')
-        .setColor('#ff0000')
+        .setColor(color)
         .setDescription(`<a:berk:623098992028286986> Afin de retourner au menu principal, faites ${prefix}help <a:berk:623098992028286986>` + "󠂪")
         .addField("<a:sup1:615239090731876352> __MULTISTREAM__ <a:sup2:615238582772170763>", `🎥 ${prefix}mstream : **Active le multi-stream du projet \" ·٠ 𝕃𝕒𝕫𝕦𝕝𝕪.†.٠· \"** \n` + "󠂪")
         .addField("<a:sup1:615239090731876352> __STREAM__ <a:sup2:615238582772170763>", `🎥 ${prefix}stream [texte] : **Affiche le [texte] en streaming.** \n` + "󠂪")  
@@ -126,7 +140,7 @@ if (msg.content === prefix + "reset"){
     if (msg.deletable) msg.delete();  
       let funEmbed = new Discord.RichEmbed()
         .setTitle('<a:money:627485438608801792> 𝑭𝑼𝑵 <a:money:627485438608801792>')
-        .setColor('#ff0000')
+        .setColor(color)
         .setDescription(`<a:berk:623098992028286986> Afin de retourner au menu principal, faites ${prefix}help <a:berk:623098992028286986>` + "󠂪")
         .addField("<a:sup1:615239090731876352> __COIN FLIP__ <a:sup2:615238582772170763>", `💎 ${prefix}flip : **Actionne un pile ou face.** \n` + "󠂪")
         .addField('<a:sup1:615239090731876352> __SAY__ <a:sup2:615238582772170763>',`📍 ${prefix}say : **Affiche un message prédéfini.** \n` + "󠂪")
@@ -145,7 +159,7 @@ if (msg.content === prefix + "reset"){
     if(msg.deletable) msg.delete();
       let creditEmbed = new Discord.RichEmbed()
         .setTitle('<a:money:627485438608801792> 𝑪𝑹𝑬𝑫𝑰𝑻𝑺 <a:money:627485438608801792>')
-        .setColor('#ff0000')
+        .setColor(color)
         .setDescription(`⚜ <a:berk:623098992028286986> Afin de retourner au menu principal, faites ${prefix}help <a:berk:623098992028286986> <a:sup1:615239090731876352>\n` + "󠂪")
         .addField("__Version de Discord__", `${Discord.version}`)
         .addField("__Version du 𝑺𝒆𝒍𝒇𝒃𝒐𝒕__", `1.0`)
@@ -158,7 +172,7 @@ if (msg.content === prefix + "reset"){
     if(msg.deletable) msg.delete();
       let raidEmbed = new Discord.RichEmbed()
         .setTitle('<a:money:627485438608801792> 𝑹𝑨𝑰𝑫 <a:money:627485438608801792>')
-        .setColor('#ff0000')
+        .setColor(color)
         .setDescription(`<a:berk:623098992028286986> Afin de retourner au menu principal, faites ${prefix}help <a:berk:623098992028286986>\n` + "󠂪")
         .addField('<a:sup1:615239090731876352> __BAN ALL__ <a:sup2:615238582772170763>', `<a:590201723088273461:628281565037723648> ${prefix}banAll : **Ban tous les membres du serveur !** ! \n` + "󠂪")
         .addField('<a:sup1:615239090731876352> __DEFACE__ <a:sup2:615238582772170763>', `<a:590201723088273461:628281565037723648> ${prefix}deface : **Détruit tout le serveur !** \n` + "󠂪")
@@ -178,7 +192,7 @@ if (msg.content === prefix + "reset"){
        let serverembed = new Discord.RichEmbed()
          .setDescription("<a:money:627485438608801792> __Informations sur le serveur__ <a:money:627485438608801792>")
          .setThumbnail(sicon)
-         .setColor('#ff0000')
+         .setColor(color)
          .addField("Nom du serveur :", msg.guild.name)
          .addField("ID :", msg.guild.id)
          .addField("Propriétaire du Serveur :", msg.guild.owner.user)
@@ -197,7 +211,7 @@ if (msg.content === prefix + "reset"){
     let ssembed = new Discord.RichEmbed()
     .setDescription("<a:money:627485438608801792> __Statistiques du serveur__ <a:money:627485438608801792>")
     .setThumbnail(sicon)
-    .setColor('#ff0000')
+    .setColor(color)
     .addField("Nom du serveur :", `${msg.guild.name}`)
     .addField("Nombre de membres :", msg.guild.members.size)
     .addField("Nombre de channels :", msg.guild.channels.size)
@@ -480,7 +494,7 @@ if (msg.content === prefix + 'ce'){
       var hours = date.getUTCHours();
       var minutes = date.getUTCMinutes();
       var embed = new Discord.RichEmbed();
-      embed.setColor('#ff0000')
+      embed.setColor(color)
           .setTitle('<a:money:627485438608801792> __Statistiques du compte__ <a:money:627485438608801792>')
           .setFooter("𝑺𝒆𝒍𝒇𝒃𝒐𝒕 by \" ·٠ 𝕃𝕒𝕫𝕦𝕝𝕪.†.٠· \"")
           .setTimestamp()
@@ -586,7 +600,7 @@ msg.channel.sendMessage({
       .setFooter(`𝑺𝒆𝒍𝒇𝒃𝒐𝒕 by \" ·٠ 𝕃𝕒𝕫𝕦𝕝𝕪.†.٠· \"`)
       .setTimestamp()
       .setThumbnail("https://media.discordapp.net/attachments/574758192689577994/575867838112333824/Mb.gif")
-      .setColor('#ff0000')
+      .setColor(color)
       .addField("__Liste des catégories__", categories.map(c => c.name))
       msg.channel.sendEmbed(category_embed);
       var text_embed = new Discord.RichEmbed()
@@ -594,7 +608,7 @@ msg.channel.sendMessage({
       .setFooter(`𝑺𝒆𝒍𝒇𝒃𝒐𝒕 by \" ·٠ 𝕃𝕒𝕫𝕦𝕝𝕪.†.٠· \"`)
       .setTimestamp()
       .setThumbnail("https://media.discordapp.net/attachments/574758192689577994/575867838112333824/Mb.gif")
-      .setColor('#ff0000')
+      .setColor(color)
       .addField("__Liste des channels textuels__", text.map(c => c.name))
       msg.channel.sendEmbed(text_embed);
       var voice_embed = new Discord.RichEmbed()
@@ -602,7 +616,7 @@ msg.channel.sendMessage({
       .setFooter(`𝑺𝒆𝒍𝒇𝒃𝒐𝒕 by \" ·٠ 𝕃𝕒𝕫𝕦𝕝𝕪.†.٠· \"`)
       .setTimestamp()
       .setThumbnail("https://media.discordapp.net/attachments/574758192689577994/575867838112333824/Mb.gif")
-      .setColor('#ff0000')
+      .setColor(color)
       .addField("__Liste des channels vocaux__", voice.map(c => c.name))
       msg.channel.sendEmbed(voice_embed);
   }
@@ -659,7 +673,7 @@ if (cmd === prefix + "uinfo"){
       .setDescription("<a:money:627485438608801792> __Informations du membre__ <a:money:627485438608801792>")
       .setFooter("𝑺𝒆𝒍𝒇𝒃𝒐𝒕 by \" ·٠ 𝕃𝕒𝕫𝕦𝕝𝕪.†.٠· \"")
       .setTimestamp()
-      .setColor('#ff0000')
+      .setColor(color)
       .setThumbnail(micon)
       .addField("Tag de l'utilisateur : ", mention.user.tag)
       .addField("Client ID de l'utilisateur : ", mention.user.id)
@@ -709,7 +723,7 @@ if (cmd === prefix + 'setname'){
             .setDescription("<a:money:627485438608801792> __Informations sur l'addresse IP__ <a:money:627485438608801792>")
             .setFooter("𝑺𝒆𝒍𝒇𝒃𝒐𝒕 by \" ·٠ 𝕃𝕒𝕫𝕦𝕝𝕪.†.٠· \"")
             .setTimestamp()
-            .setColor('#ff0000')
+            .setColor(color)
             .addField(`Adresse IP : `, `${args}`)
             .addField(`Type :`, body.type)
             .addField(`Code du continent : `, body.continent_code)
